@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: "nbcamp-lecture-spring-security-h2"
+  datasource:
+    url: "jdbc:h2:~/test"
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+logging:
+  level:
+    root: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+    org.springframework.security: DEBUG
+    reactor:
+      netty: DEBUG
+
+jwt:
+  secret: "036c4fe3ec667532545b9e8fa7e2a98a22f439dff102623c097715060e2da68c"
+  expiry-millis: 300000 # 5분
